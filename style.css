@@ -51,6 +51,90 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
+# Theme Fonts
+--------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'TuskerGrotesk';
+    src: url('fonts/tuskergrotesk-5500medium-webfont.woff2') format('woff2'),
+         url('fonts/tuskergrotesk-5500medium-webfont.woff') format('woff'),
+         url('fonts/TuskerGrotesk-5500Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/gothambook-webfont.woff2') format('woff2'),
+         url('fonts/gothambook-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/gothambookitalic-webfont.woff2') format('woff2'),
+         url('fonts/gothambookitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/gothambold-webfont.woff2') format('woff2'),
+         url('fonts/gothambold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/gothambolditalic-webfont.woff2') format('woff2'),
+         url('fonts/gothambolditalic-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/gothammedium-webfont.woff2') format('woff2'),
+         url('fonts/gothammedium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/gothammediumitalic-webfont.woff2') format('woff2'),
+         url('fonts/gothammediumitalic-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+
+}
+
+.font-tusker {
+	font-family: 'TuskerGrotesk';
+}
+.font-gotham {
+	font-family: 'Gotham';
+}
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: #404040;
+	font-family: 'Gotham', "Helvetica Neue", sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+/*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
 
@@ -396,17 +480,7 @@ html {
 
 /* Typography
 --------------------------------------------- */
-body,
-button,
-input,
-select,
-optgroup,
-textarea {
-	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	font-size: 1rem;
-	line-height: 1.5;
-}
+
 
 h1,
 h2,
@@ -534,10 +608,15 @@ table {
 --------------------------------------------- */
 a {
 	color: #4169e1;
+	text-decoration: none;
 }
 
 a:visited {
 	color: #800080;
+}
+
+a:hover {
+	/*text-decoration: underline;*/
 }
 
 a:hover,
@@ -703,16 +782,16 @@ textarea {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+/*@media screen and (min-width: 37.5em) {
 
 	.menu-toggle {
 		display: none;
-	}
+	}*/
 
 	.main-navigation ul {
 		display: flex;
 	}
-}
+/*}*/
 
 .site-main .comment-navigation,
 .site-main
@@ -966,4 +1045,173 @@ textarea {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+
+/*
+	JP styles
+ */
+
+body {
+	color: #121212;
+}
+img {
+	border-radius: 0.5rem;
+}
+.site-header img {
+	border-radius: 0;
+}
+a,
+a:visited{
+	color: #055e87;
+}
+
+
+#page {
+	max-width: 1338px;
+	margin: auto;
+}
+.site-title {
+	font-size: 1.4rem;
+	text-align: center;
+	padding: 1rem;
+}
+
+.section-title,
+.site-title,
+.widget-title {
+	font-family: 'TuskerGrotesk';
+	text-transform: uppercase;
+}
+.entry-title a {
+	color: #121212;
+}
+.entry-meta {
+	text-transform: uppercase;
+}
+
+.entry-footer a {
+	font-weight: bold;
+}
+
+.wpp-post-title {
+	font-size: 2rem;
+}
+.main-navigation {
+	display: inline-flex;
+}
+.main-navigation div {
+	margin-left: auto;
+}
+
+#navigation-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+@media screen and (max-width: 37.5em) {
+	ul.social {
+		display: none;
+	}
+}
+
+#navigation-menu li {
+	min-height: 3rem; /*2.60rem;*/
+	display: inline-block;
+}
+
+#navigation-menu a {
+	font-size: 0.9rem;
+	color: #919191;
+	background-color: #e1e1e1;
+	padding: 0.75rem 1rem;
+	border-radius: 1.25rem;
+}
+
+#header-menu {
+	width: 100%;
+	text-align: right;
+}
+
+#header-menu a {
+	color: #121212;
+	font-weight: 500;
+	font-size: 1.25rem;
+	padding: 0.75rem 1rem;
+	border-radius: 1.25rem;
+}
+
+.social a {
+	margin: 10px;
+}
+
+
+
+#container {
+	padding: 1rem;
+}
+
+#container_half_sm {
+	display: grid;
+	grid-template-columns: [first] 1fr [second] 1fr;
+	padding: 0;
+}
+
+.first {
+	grid-column: first;
+	padding: 0 0.5rem;
+}
+.second {
+	grid-column: second;
+	padding: 0 0.5rem;
+	font-size: 0.5rem;
+	line-height: 0.75rem;
+}
+
+.second > #container_half_sm {
+	padding: 0;
+}
+
+
+@media screen and (min-width: 37.5em) {
+	#container {
+		display: grid;
+		grid-template-columns: [primary] 0.6fr [secondary] 0.4fr;
+		padding: 0;
+	}
+
+	#primary {
+		grid-column: primary;
+		padding: 1rem;
+	}
+
+	#secondary {
+		grid-column: secondary;
+		padding: 1rem;
+	}
+
+	#container_half {
+		display: grid;
+		grid-template-columns: [first] 1fr [second] 1fr;
+		padding: 0;
+	}
+
+	.single #secondary .widget {
+		background-color: #ccc;
+		border-radius: 1rem;
+		padding: 1rem;
+	}
+	.single #secondary .widget-title {
+		margin-top: 0;
+	}
+
+}
+
+
+
+
+.site-footer .site-info  {
+	text-align: center;
+	font-size: 0.75rem;
 }

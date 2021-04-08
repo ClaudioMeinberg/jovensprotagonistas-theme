@@ -14,6 +14,7 @@
 
 get_header();
 ?>
+<div id="container">
 
 	<main id="primary" class="site-main">
 
@@ -28,20 +29,32 @@ get_header();
 				<?php
 			endif;
 
-			/* Start the Loop */
-			while ( have_posts() ) :
+
+			if ( is_home() && is_front_page() ) :
+				?>
+			<h2 class="section-title">Mais Recente</h2>
+				<?php
 				the_post();
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				get_template_part( 'template-parts/card', get_post_type() );
 
-			endwhile;
+			else :
 
-			the_posts_navigation();
+				/* Start the Loop */
+				while ( have_posts() ) :
+					the_post();
+
+					/*
+					 * Include the Post-Type-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', get_post_type() );
+
+				endwhile;
+
+				the_posts_navigation();
+			endif;
 
 		else :
 
@@ -52,6 +65,37 @@ get_header();
 
 	</main><!-- #main -->
 
+<?php get_sidebar(); ?>
+</div>
+<hr>
+<div id="container_half">
+
+	<?php if ( have_posts() ) :  the_post(); ?>
+	<div class="first">
+		<?php get_template_part( 'template-parts/card', get_post_type() );?>
+	</div>
+<?php endif; ?>
+	<div class="second">
+		<div id="container_half_sm">
+			<div class="first">
+				<?php if ( have_posts() ) :  the_post(); ?>
+				<?php get_template_part( 'template-parts/card', get_post_type(), array('compact' => true) );?>
+				<?php endif; ?>
+				<?php if ( have_posts() ) :  the_post(); ?>
+				<?php get_template_part( 'template-parts/card', get_post_type(), array('compact' => true) );?>
+				<?php endif; ?>
+			</div>
+			<div class="second">
+				<?php if ( have_posts() ) :  the_post(); ?>
+				<?php get_template_part( 'template-parts/card', get_post_type(), array('compact' => true) );?>
+				<?php endif; ?>
+				<?php if ( have_posts() ) :  the_post(); ?>
+				<?php get_template_part( 'template-parts/card', get_post_type(), array('compact' => true) );?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
+</div>
+
 <?php
-get_sidebar();
 get_footer();

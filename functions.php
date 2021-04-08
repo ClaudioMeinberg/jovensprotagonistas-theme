@@ -47,10 +47,40 @@ if ( ! function_exists( 'tema_jovensprotagonistas_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		// thumbnail
+		// 195x172
+		update_option( 'thumbnail_size_w', 150 );
+		update_option( 'thumbnail_size_h', 150 );
+		update_option( 'thumbnail_crop', 1 );
+
+		// large
+		// 768x422
+		// img col-1 desktop
+		update_option( 'large_size_w', 768 );
+		update_option( 'large_size_h', 'auto' );
+
+
+		// medium
+		// 650x360
+		// img col-2 desktop
+		// img col-1 mobile
+		update_option( 'medium_large_size_w', 650 );
+		update_option( 'medium_large_size_h', 360 );
+
+		// post-thumbnail
+		// 312x172
+		// img col-4 desktop
+		// img col-2 mobile
+		update_option( 'medium_size_w', 312 );
+		update_option( 'medium_size_h', 172 );
+
+
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'tema-jovensprotagonistas' ),
+				'menu-header' => esc_html__( 'Cabeçalho', 'tema-jovensprotagonistas' ),
+				'menu-navigation' => esc_html__( 'Navegação', 'tema-jovensprotagonistas' ),
 			)
 		);
 
@@ -178,3 +208,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+add_action('after_setup_theme', 'remove_admin_bar');
+if ( ! function_exists( 'remove_admin_bar' ) ) :
+function remove_admin_bar() {
+	// if (!current_user_can('administrator') && !is_admin()) {
+	  show_admin_bar(false);
+	// }
+}
+endif;

@@ -24,9 +24,13 @@ function tema_jovensprotagonistas_custom_header_setup() {
 			array(
 				'default-image'      => '',
 				'default-text-color' => '000000',
+
+				'flex-width'    => true,
 				'width'              => 1000,
-				'height'             => 250,
+
 				'flex-height'        => true,
+				'height'             => 250,
+
 				'wp-head-callback'   => 'tema_jovensprotagonistas_header_style',
 			)
 		)

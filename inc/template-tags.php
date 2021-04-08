@@ -27,7 +27,7 @@ if ( ! function_exists( 'tema_jovensprotagonistas_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'tema-jovensprotagonistas' ),
+			esc_html_x( '%s', 'post date', 'tema-jovensprotagonistas' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -43,7 +43,7 @@ if ( ! function_exists( 'tema_jovensprotagonistas_posted_by' ) ) :
 	function tema_jovensprotagonistas_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'tema-jovensprotagonistas' ),
+			esc_html_x( '| por %s', 'post author', 'tema-jovensprotagonistas' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -57,6 +57,8 @@ if ( ! function_exists( 'tema_jovensprotagonistas_entry_footer' ) ) :
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function tema_jovensprotagonistas_entry_footer() {
+		return ;
+
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
@@ -163,3 +165,18 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+/**
+ * Make popular posts links red in 'Cards' theme.
+ *
+ * @param  string $additional_styles
+ * @param  string $theme_name
+ * @return string
+ */
+function wpp_additional_css_rules($additional_styles, $theme_name){
+    if ( 'cards' == $theme_name ) {
+        $additional_styles .= '.wpp-list li a { color: #121212; }';
+    }
+    return $additional_styles;
+}
+add_filter('wpp_additional_theme_styles', 'wpp_additional_css_rules', 10, 2);
